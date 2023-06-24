@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="snack-list">
+    <h1>Snacks List</h1>
+    <div class="snack-cards">
+      {% for snack in snacks %}
+        <div class="snack-card">
+          <div class="snack-image">
+            <img src="{{ snack.image.url }}" alt="Snack image">
+            <div class="snack-overlay">
+              <h3>{{ snack.name }}</h3>
+              <p>{{ snack.desc }}</p>
+              <a href="{% url 'snack-detail' snack.pk %}" class="btn">Learn More</a>
+              <button><a href="{% url 'update-snack' snack.pk %}">Update</a></button>
+              <button><a href="{% url 'delete-snack' snack.pk %}">Delete</a></button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="snack-form">
+      <h2>Create a New Snack</h2>
+      <button><a href="{% url 'create-snack' %}">Create</a></button>
+    </div>
+  </div>
+{% endblock content %}

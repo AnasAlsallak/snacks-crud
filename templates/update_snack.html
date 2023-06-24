@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h1>Update the {{snack.name}}</h1>
+
+        <form method="post" class="snack-form" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_purchaser">Purchaser:</label>
+                {{ form.purchaser }}
+            </div>
+            <div class="form-group">
+                <label for="id_desc">Description:</label>
+                {{ form.desc }}
+            </div>
+            <div class="form-group">
+                <label for="id_image">Image:</label>
+                {{ form.image }}
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn" value="Update Snack" />
+            </div>
+        </form>
+    </div>
+{% endblock content %}

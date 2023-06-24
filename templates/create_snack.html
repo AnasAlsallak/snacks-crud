@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h1>Create a New Snack</h1>
+        <p class="form-description">This is the space where you can go wild creating your favorite snacks</p>
+
+        <form method="post" class="snack-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_purchaser">Purchaser:</label>
+                {{ form.purchaser }}
+            </div>
+            <div class="form-group">
+                <label for="id_desc">Description:</label>
+                {{ form.desc }}
+            </div>
+            <div class="form-group">
+                <label for="id_image">Image:</label>
+                {{ form.image }}
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn" value="Create Snack" />
+            </div>
+        </form>
+    </div>
+{% endblock content %}
